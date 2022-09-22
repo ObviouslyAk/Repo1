@@ -1,0 +1,41 @@
+One of the WPAN networks, 1994.
+802.15.1
+10 meters mac radius of coverage.
+Uses the ISM or license-free band (2.4 till 2.48 GHz for radio frequencies).
+Cheap, flexible, low power.
+Nominal throughput = 1 Mbps.
+Hopps among 79 frequencies.
+Piconet = master + (1 to 7) active slaves.
+A 48 bit identifier per device (BD_ADDR).
+Max tested devices connected to piconet = 255.
+Frequency hopping sequence reduces interference between piconets.
+Two links: SCO(slot reservation) and ACL(polling).
+A piconet handles up to 3 SCO links.
+Bluetooth packet types: 1, 3, and 5 slot packets.
+Each slot is 625 microseconds with 1 Mbpsrate = 625 bits can be transmitted per slot.
+Change from transmit to receive state = 259 microseconds.
+
+HVx -> for SCO (voice).
+DMx -> for ACL (Data with error correction or FEC).
+DHx -> for ACL (Data witout FEC).
+Note: (where x = 1,3,5)
+
+2-3 users -> 5 time slots
+4-6 users -> 3 time slots
+7-8 users -> 1 time slot
+
+Connection setup: Inquiry -> page -> connected!
+Device in inquiry scan state responds to inquiries from devices in inquiry state.
+Device in page scan state responds to connection requests from devices in page state.
+Devices with no UI -> no authetication.
+Devices with UI -> 6 digits code.
+
+Scatternet bridges are active for one piconet at a time, and needs to synchronize with the FHS of the piconet.
+A bridge connects only 2 piconets.
+
+Coordinator election: Votes is first criteria, then node address.
+Loser enters page scan and sends FHS and vodes to winner.
+
+Poll and ack, each take 2 time slots -> send and idle.
+
+Probability of collision -> check all possible combinations.
